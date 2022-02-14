@@ -8,7 +8,7 @@ namespace API_Gestionnaire_de_Vacataire.Repository
     {
         Task<IEnumerable<InfoEmploisDeTemps>> GetAllEmploiDeTemps();
         Task<IEnumerable<InfoEmploisDeTemps>> GetEmploiDeTempsById(int Id);
-        Task<InfoEmploisDeTemps> CreateEmploiDeTemp(InfoEmploisDeTemps emploisDeTemps);
+        void CreateEmploiDeTemps(EmploiDeTemps emploiDeTemps);
         Task<InfoEmploisDeTemps> TcheckEmploiDeTemps(string Nom, string matiere);
     }
 }

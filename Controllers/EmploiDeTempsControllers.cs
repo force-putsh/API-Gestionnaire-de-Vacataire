@@ -59,8 +59,14 @@ namespace API_Gestionnaire_de_Vacataire.Controllers
 
         // POST api/<EmploiDeTemps>
         [HttpPost]
-        public void Post([FromBody] string value)
+        public int CreateEmploDeTemp(EmploiDeTemps emploiDeTemps)
         {
+            if (emploiDeTemps!=null)
+            {
+                 _emploiDeTempsRepository.CreateEmploiDeTemps(emploiDeTemps);
+                return 1;
+            }
+            return 0;
         }
 
         // PUT api/<EmploiDeTemps/5

@@ -64,5 +64,11 @@ namespace API_Gestionnaire_de_Vacataire.Repository
                                 }).FirstOrDefaultAsync();
             return result;
         }
+
+        public async void CreateEmploiDeTemps(EmploiDeTemps emploiDeTemps)
+        {
+            await _dbContext.EmploiDeTemps.AddAsync(emploiDeTemps);
+            await _dbContext.SaveChangesAsync();
+        }
     }
 }

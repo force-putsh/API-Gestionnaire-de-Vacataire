@@ -8,6 +8,7 @@ using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
+using Swashbuckle.AspNetCore.Swagger;
 using Microsoft.Extensions.Logging;
 using System;
 using System.Collections.Generic;
@@ -28,6 +29,8 @@ namespace API_Gestionnaire_de_Vacataire
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddMvc();
+            services.AddSwaggerGen();
             services.AddControllers();
             services.AddEntityFrameworkSqlServer().AddDbContext<DbGestionnaireStagiaireContext>(item => item.UseSqlServer(Configuration.GetConnectionString("DBGV")));
             services.AddScoped<IEmploiDeTempsRepository, EmploiDeTempsRepository>();
@@ -40,6 +43,8 @@ namespace API_Gestionnaire_de_Vacataire
             {
                 app.UseDeveloperExceptionPage();
             }
+            app.UseSwagger();
+            app.UseSwaggerUI();
 
             app.UseHttpsRedirection();
 
