@@ -29,8 +29,7 @@ namespace API_Gestionnaire_de_Vacataire.Models
         {
             if (!optionsBuilder.IsConfigured)
             {
-#warning To protect potentially sensitive information in your connection string, you should move it out of source code. See http://go.microsoft.com/fwlink/?LinkId=723263 for guidance on storing connection strings.
-                optionsBuilder.UseSqlServer("Server=(LocalDB)\\MSSQLLocalDB;Database=DbGestionnaireStagiaire.;Trusted_Connection=True;");
+                optionsBuilder.UseSqlServer("Server=PT62\\SQL2022;Database=Gestion_Etudiants.;Trusted_Connection=True;TrustServerCertificate");
             }
         }
 
